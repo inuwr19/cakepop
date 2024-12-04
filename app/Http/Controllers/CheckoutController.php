@@ -14,20 +14,25 @@ class CheckoutController extends Controller
 
     public function process(Request $request)
     {
-        // Validasi data checkout
         $validatedData = $request->validate([
             'name' => 'required|string|max:255',
             'email' => 'required|email',
             'phone' => 'required|string|max:20',
             'address' => 'required|string',
-            'payment_method' => 'required|string',
+            'payment_method' => 'required|string|in:credit_card,bank_transfer,cash',
         ]);
 
-        // Proses data checkout (misalnya, simpan ke database atau lakukan pembayaran)
+        // Proses data checkout (contoh: simpan ke database)
+        // Order::create($validatedData);
 
-        // Redirect ke halaman konfirmasi atau sukses
+        // Hapus semua item di keranjang
+        session()->forget('cart');
+
+        // Redirect ke halaman sukses
         return redirect()->route('checkout.success')->with('message', 'Checkout berhasil! Terima kasih atas pesanan Anda.');
     }
+
+
 
     public function success()
     {

@@ -63,6 +63,6 @@ class CartController extends Controller
             return $sum + $item['price'] * $item['quantity'];
         }, 0);
 
-        return view('cart.confirmation', compact('cartItems', 'total'));
+        return view('checkout.show', compact('cartItems', 'total'));
     }
 }

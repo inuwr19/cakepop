@@ -13,11 +13,11 @@
             <h4>Informasi Pribadi</h4>
             <div class="form-group mb-3">
                 <label for="name">Nama Lengkap</label>
-                <input type="text" class="form-control" id="name" name="name" required>
+                <input type="text" class="form-control" id="name" name="name" value="{{ Auth::user()->name }}" required>
             </div>
             <div class="form-group mb-3">
                 <label for="email">Email</label>
-                <input type="email" class="form-control" id="email" name="email" required>
+                <input type="email" class="form-control" id="email" name="email" value="{{ Auth::user()->email }}" required>
             </div>
             <div class="form-group mb-3">
                 <label for="phone">Nomor Telepon</label>
@@ -25,7 +25,7 @@
             </div>
             <div class="form-group mb-3">
                 <label for="address">Alamat Pengiriman</label>
-                <textarea class="form-control" id="address" name="address" rows="3" required></textarea>
+                <textarea class="form-control" id="address" name="address" rows="3" required>{{ Auth::user()->address?->address ?? '' }}</textarea>
             </div>
         </div>
 

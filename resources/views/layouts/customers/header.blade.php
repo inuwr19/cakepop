@@ -14,33 +14,34 @@
                 <a href="contact.html" class="nav-item nav-link">Contact Us</a>
             </div>
             <div class="d-none d-lg-flex ms-2">
-                <a class="btn-sm-square bg-white rounded-circle ms-3" href="#">
+                {{-- <a class="btn-sm-square bg-white rounded-circle ms-3" href="#">
                     <small class="fa fa-search text-body"></small>
-                </a>
+                </a> --}}
 
                 @auth
-                <!-- Jika User Sudah Login -->
-                <div class="dropdown ms-3">
-                    <a class="btn-sm-square bg-white rounded-circle" id="userDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        <small class="fa fa-user text-body"></small>
-                    </a>
-                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
-                        <li><a class="dropdown-item" href="{{ route('profile.show') }}">Edit Profile</a></li>
-                        <li>
-                            <form method="POST" action="{{ route('logout') }}">
-                                @csrf
-                                <button type="submit" class="dropdown-item">Logout</button>
-                            </form>
-                        </li>
-                    </ul>
-                </div>
+                    <!-- Jika User Sudah Login -->
+                    <div class="dropdown ms-3">
+                        <a class="btn-sm-square bg-white rounded-circle" id="userDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            {{ Auth::user()->name }}
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
+                            <li><a class="dropdown-item" href="{{ route('profile.user') }}">Edit Profile</a></li>
+                            <li>
+                                <form method="POST" action="{{ route('logout') }}">
+                                    @csrf
+                                    <button type="submit" class="dropdown-item">Logout</button>
+                                </form>
+                            </li>
+                        </ul>
+                    </div>
                 @endauth
 
                 @guest
-                <!-- Jika User Belum Login -->
-                <a class="btn-sm-square bg-white rounded-circle ms-3" href="{{ route('login') }}">
-                    <small class="fa fa-user text-body"></small>
-                </a>
+                    <!-- Jika User Belum Login -->
+                    <a class="btn-sm-square bg-white rounded-circle ms-3" href="{{ route('login') }}">
+                        <small class="fa fa-user text-body"></small>
+                    </a>
                 @endguest
 
                 <a class="btn-sm-square bg-white rounded-circle ms-3" href="{{ route('cart.index') }}">

@@ -12,6 +12,11 @@ class CakeController extends Controller
         $cakes = Cake::all();
         return view('cakes.index', compact('cakes'));
     }
+    public function dashboard()
+    {
+        $cakes = Cake::all();
+        return view('cakes.index', compact('cakes'));
+    }
 
     public function show($id)
     {
