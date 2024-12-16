@@ -18,6 +18,18 @@ class CakeController extends Controller
         return view('cakes.index', compact('cakes'));
     }
 
+    public function product()
+    {
+        $cakes = Cake::all();
+        return view('cakes.product', compact('cakes'));
+    }
+
+    public function about()
+    {
+        // Return the About Us view
+        return view('cakes.about');
+    }
+
     public function show($id)
     {
         // Ambil data cake berdasarkan ID

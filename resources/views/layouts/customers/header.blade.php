@@ -9,9 +9,9 @@
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <div class="navbar-nav ms-auto p-4 p-lg-0">
                 <a href="{{ route('cakes.index') }}" class="nav-item nav-link active">Home</a>
-                <a href="about.html" class="nav-item nav-link">About Us</a>
-                <a href="{{ route('cakes.index') }}" class="nav-item nav-link">Products</a>
-                <a href="contact.html" class="nav-item nav-link">Contact Us</a>
+                <a href="{{ route('cakes.about') }}" class="nav-item nav-link">About Us</a>
+                <a href="{{ route('cakes.product') }}" class="nav-item nav-link">Products</a>
+                {{-- <a href="contact.html" class="nav-item nav-link">Contact Us</a> --}}
             </div>
             <div class="d-none d-lg-flex ms-2">
                 {{-- <a class="btn-sm-square bg-white rounded-circle ms-3" href="#">

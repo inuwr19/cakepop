@@ -40,5 +40,6 @@ Route::middleware([
 
 Route::get('/', [CakeController::class, 'index'])->name('cakes.index');
 Route::get('/dashboard', [CakeController::class, 'index'])->name('dashboard');
+Route::get('/product', [CakeController::class, 'product'])->name('cakes.product');
 Route::get('/cakes/{id}', [CakeController::class, 'show'])->name('cakes.show');
-
+Route::get('/about', [CakeController::class, 'about'])->name('cakes.about');

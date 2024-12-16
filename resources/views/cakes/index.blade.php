@@ -59,11 +59,11 @@
                 </div>
                 <div class="col-lg-6 wow fadeIn" data-wow-delay="0.5s">
                     <h1 class="display-5 mb-4">Best Freshly Baked</h1>
-                    <p class="mb-4">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu diam amet diam et eos. Clita erat ipsum et lorem et sit, sed stet lorem sit clita duo justo magna dolore erat amet</p>
-                    <p><i class="fa fa-check text-primary me-3"></i>Tempor erat elitr rebum at clita</p>
-                    <p><i class="fa fa-check text-primary me-3"></i>Aliqu diam amet diam et eos</p>
-                    <p><i class="fa fa-check text-primary me-3"></i>Clita duo justo magna dolore erat amet</p>
-                    <a class="btn btn-primary rounded-pill py-3 px-5 mt-3" href="">Read More</a>
+                    <p class="mb-4">Experience the joy of freshly baked goods crafted with love and premium ingredients. Our products are designed to delight your senses with every bite, delivering unparalleled freshness and flavor.</p>
+                    <p><i class="fa fa-check text-primary me-3"></i>Guaranteed Freshness</p>
+                    <p><i class="fa fa-check text-primary me-3"></i>Premium Ingredients</p>
+                    <p><i class="fa fa-check text-primary me-3"></i>A Wide Variety of Delights</p>
+                    <a class="btn btn-primary rounded-pill py-3 px-5 mt-3" href="{{ route('cakes.about') }}">Read More</a>
                 </div>
             </div>
         </div>
@@ -113,7 +113,7 @@
                 <div class="col-lg-6">
                     <div class="section-header text-start mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 500px;">
                         <h1 class="display-5 mb-3">Our Products</h1>
-                        <p>Tempor ut dolore lorem kasd vero ipsum sit eirmod sit. Ipsum diam justo sed rebum vero dolor duo.</p>
+                        <p>Discover a delightful array of high-quality baked goods, crafted to bring joy to every moment. From classic favorites to innovative creations, our products are designed to satisfy every taste and preference.</p>
                     </div>
                 </div>
                 <div class="col-lg-6 text-start text-lg-end wow slideInRight" data-wow-delay="0.1s">
@@ -156,9 +156,18 @@
                                             <i class="fa fa-shopping-cart me-2"></i>Add to cart
                                         </button>
                                     </form> --}}
-                                    <small class="w-50 text-center py-2">
+                                    <form action="{{ route('cart.add') }}" method="POST">
+                                        @csrf
+                                        <input type="hidden" name="cake_id" value="{{ $cake->id }}">
+                                        <small class="w-50 text-center py-2">
+                                            <button type="submit" class="btn btn-link text-body p-2" style="text-decoration: none;">
+                                                <i class="fa fa-shopping-bag text-primary me-2"></i>Add to cart
+                                            </button>
+                                        </small>
+                                    </form>
+                                    {{-- <small class="w-50 text-center py-2">
                                         <a class="text-body" href=""><i class="fa fa-shopping-bag text-primary me-2"></i>Add to cart</a>
-                                    </small>
+                                    </small> --}}
                                 </div>
                             </div>
                         </div>
