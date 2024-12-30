@@ -139,8 +139,13 @@ class CheckoutController extends Controller
 
     public function history()
     {
-        $orders = Order::where('user_id', Auth::id())->with(['address', 'payments'])->get();
-        return view('orders.history', compact('orders'));
+        $orders = Order::where('user_id', Auth::id())
+        ->with(['address', 'payments' => function ($query) {
+            $query->orderBy('created_at'); // Ambil pembayaran terbaru
+        }])
+        ->get();
+
+    return view('orders.history', compact('orders'));
     }
 
     public function invoice($orderId)
