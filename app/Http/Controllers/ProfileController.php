@@ -11,6 +11,10 @@ class ProfileController extends Controller
     {
         return view('profile.edit');
     }
+    public function history()
+    {
+        return view('profile.history');
+    }
 
     public function update(Request $request)
     {

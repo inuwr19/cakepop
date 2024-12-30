@@ -14,18 +14,27 @@
         .btn-lg {
             padding: 0.75rem 1.25rem;
         }
+
+        h2,
+        h3 {
+            font-weight: 600;
+        }
+
+        label {
+            font-weight: 500;
+        }
     </style>
     <div class="container py-5 mt-5">
-        <h2 class="mb-4">Konfirmasi Pembelian</h2>
+        <h2 class="mb-4 text-center">Purchase Confirmation</h2>
 
-        <!-- Ringkasan Keranjang -->
+        <!-- Cart Summary -->
         <div class="table-responsive mb-5">
             <table class="table table-bordered">
                 <thead class="table-light">
                     <tr>
-                        <th>Produk</th>
-                        <th>Harga Satuan</th>
-                        <th>Jumlah</th>
+                        <th>Product</th>
+                        <th>Unit Price</th>
+                        <th>Quantity</th>
                         <th>Subtotal</th>
                     </tr>
                 </thead>
@@ -48,12 +57,12 @@
             </table>
         </div>
 
-        <!-- Form Data Diri -->
-        <h3 class="mb-3">Data Diri Pembeli</h3>
-        <form action="{{ route('checkout.process') }}" method="POST">
+        <!-- Customer Information Form -->
+        <h3 class="mb-3">Customer Information</h3>
+        <form action="{{ route('order.create') }}" method="POST">
             @csrf
             <div class="mb-3">
-                <label for="name" class="form-label">Nama Lengkap</label>
+                <label for="name" class="form-label">Full Name</label>
                 <input type="text" class="form-control" id="name" name="name" value="{{ Auth::user()->name }}"
                     required>
             </div>
@@ -63,26 +72,24 @@
                     required>
             </div>
             <div class="mb-3">
-                <label for="phone" class="form-label">Nomor Telepon</label>
+                <label for="phone" class="form-label">Phone Number</label>
                 <input type="tel" class="form-control" id="phone" name="phone" required>
             </div>
             <div class="mb-3">
-                <label for="address" class="form-label">Alamat Pengiriman</label>
+                <label for="address" class="form-label">Shipping Address</label>
                 <textarea class="form-control" id="address" name="address" rows="3" required>{{ Auth::user()->address?->address ?? '' }}</textarea>
             </div>
             <div class="mb-3">
-                <label for="payment_method" class="form-label">Metode Pembayaran</label>
+                <label for="payment_method" class="form-label">Payment Method</label>
                 <select class="form-select" id="payment_method" name="payment_method" required>
-                    <option value="credit_card">Kartu Kredit</option>
-                    <option value="bank_transfer">Transfer Bank</option>
-                    <option value="cash">Bayar di Tempat</option>
+                    <option value="credit_card">Credit Card</option>
+                    <option value="bank_transfer">Bank Transfer</option>
+                    <option value="cash">Cash on Delivery</option>
                 </select>
             </div>
             <div class="d-flex justify-content-end mt-4">
-                <button type="submit" class="btn btn-success btn-lg">Lanjutkan ke Pembayaran</button>
+                <button type="submit" class="btn btn-success btn-lg">Proceed to Payment</button>
             </div>
         </form>
-
-
     </div>
 @endsection

@@ -16,6 +16,8 @@ return new class extends Migration
             $table->foreignId('order_id')->constrained()->onDelete('cascade');
             $table->string('payment_method');
             $table->decimal('amount', 10, 2);
+            $table->string('invoice');
+            $table->string('status')->default('pending');
             $table->timestamps();
         });
     }

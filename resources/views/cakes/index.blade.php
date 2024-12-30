@@ -148,14 +148,6 @@
                                             <i class="fa fa-eye text-primary me-2"></i>View detail
                                         </a>
                                     </small>
-                                    <!-- Add to Cart Form -->
-                                    {{-- <form action="{{ route('cart.add') }}" method="POST" class="mt-4">
-                                        @csrf
-                                        <input type="hidden" name="cake_id" value="{{ $cake->id }}">
-                                        <button type="submit" class="btn btn-primary btn-lg">
-                                            <i class="fa fa-shopping-cart me-2"></i>Add to cart
-                                        </button>
-                                    </form> --}}
                                     <form action="{{ route('cart.add') }}" method="POST">
                                         @csrf
                                         <input type="hidden" name="cake_id" value="{{ $cake->id }}">
@@ -165,16 +157,10 @@
                                             </button>
                                         </small>
                                     </form>
-                                    {{-- <small class="w-50 text-center py-2">
-                                        <a class="text-body" href=""><i class="fa fa-shopping-bag text-primary me-2"></i>Add to cart</a>
-                                    </small> --}}
                                 </div>
                             </div>
                         </div>
                         @endforeach
-                        {{-- <div class="col-12 text-center wow fadeInUp" data-wow-delay="0.1s">
-                            <a class="btn btn-primary rounded-pill py-3 px-5" href="">Browse More Products</a>
-                        </div> --}}
                     </div>
                 </div>
                 {{-- <div id="tab-2" class="tab-pane fade show p-0">
