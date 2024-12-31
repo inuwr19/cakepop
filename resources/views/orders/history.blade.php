@@ -1,7 +1,7 @@
 @extends('layouts.customers.index')
 
 @section('content')
-    <div class="container py-5 mt-5">
+    <div class="container py-5" style="margin-top: 7rem;">
         <h2 class="mb-4">Order History</h2>
 
         <table class="table table-bordered">
@@ -20,7 +20,6 @@
                         <td>{{ $order->id }}</td>
                         <td>{{ $order->created_at->format('d M Y') }}</td>
                         <td>Rp {{ number_format($order->total_amount, 2, ',', '.') }}</td>
-                        {{-- <td>{{ $order->payments->first()->payment_method }}</td> --}}
                         <td>
                             @php
                                 $paymentStatus = $order->payments->first()->status ?? 'unknown'; // Ambil status pertama dari payments

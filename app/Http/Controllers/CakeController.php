@@ -18,6 +18,16 @@ class CakeController extends Controller
         return view('cakes.index', compact('cakes'));
     }
 
+    public function search(Request $request)
+    {
+        $query = $request->input('query');
+        $cakes = Cake::where('name', 'LIKE', "%{$query}%")
+            ->orWhere('description', 'LIKE', "%{$query}%")
+            ->paginate(10); // Sesuai kebutuhan
+
+        return view('cakes.search', compact('cakes', 'query'));
+    }
+
     public function product()
     {
         $cakes = Cake::all();

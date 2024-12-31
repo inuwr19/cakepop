@@ -17,13 +17,18 @@ class CheckoutController extends Controller
 {
     public function show()
     {
+        // Mengambil data keranjang dari sesi
         $cartItems = session()->get('cart', []);
-        $total = array_reduce($cartItems, function ($sum, $item) {
-            return $sum + $item['price'] * $item['quantity'];
-        }, 0);
+
+        // Menghitung total pembayaran
+        $total = collect($cartItems)->sum(function ($item) {
+            return $item['price'] * $item['quantity']; // Mengakses dengan notasi array
+        });
+
         // Menampilkan halaman checkout
         return view('checkout.show', compact('cartItems', 'total'));
     }
+
 
 
     public function process(Request $request)
@@ -140,12 +145,12 @@ class CheckoutController extends Controller
     public function history()
     {
         $orders = Order::where('user_id', Auth::id())
-        ->with(['address', 'payments' => function ($query) {
-            $query->orderBy('created_at'); // Ambil pembayaran terbaru
-        }])
-        ->get();
+            ->with(['address', 'payments' => function ($query) {
+                $query->orderBy('created_at'); // Ambil pembayaran terbaru
+            }])
+            ->get();
 
-    return view('orders.history', compact('orders'));
+        return view('orders.history', compact('orders'));
     }
 
     public function invoice($orderId)

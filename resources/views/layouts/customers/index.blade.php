@@ -7,7 +7,6 @@
 </head>
 
 <body>
-
     <!-- Header -->
     @include('layouts.customers.header')
     <!-- Close Header -->

@@ -382,3 +382,20 @@
 .footer .copyright a:hover {
     color: var(--primary);
 }
+
+/* Styling awal untuk search bar kecil */
+.search-bar {
+    width: 150px; /* Lebar awal kecil */
+    transition: width 0.3s ease-in-out; /* Efek transisi saat memperbesar */
+}
+
+/* Search bar membesar saat difokuskan */
+.search-bar:focus {
+    width: 300px; /* Lebar saat aktif (klik atau fokus) */
+}
+
+/* Form agar tetap terpusat */
+.search-form {
+    width: auto; /* Menyesuaikan ukuran otomatis */
+    margin: 0 auto; /* Agar berada di tengah */
+}

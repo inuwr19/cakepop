@@ -1,0 +1,411 @@
+/* Reset some default styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    
+}
+
+/* Global Styles */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #f4f4f4;
+}
+
+header {
+    display: flex;
+    justify-content: space-between; /* Membuat ruang antara logo, menu, dan ikon */
+    align-items: center;
+    background-color: pink;
+    width: 100%;
+    padding: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Styling untuk Logo dan Nama */
+.header-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.header-logo img {
+    width: 50px; /* Sesuaikan ukuran gambar logo */
+    height: auto;
+}
+
+.logo {
+    font-size: 24px;
+    color: #333;
+}
+
+.logo span {
+    color: #ff6600;
+}
+
+/* Styling untuk navigasi */
+.nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: pink;
+    padding: 10px 20px;
+    gap: 20px; /* Memberikan jarak antar elemen dalam navigasi */
+}
+
+/* Styling untuk daftar link */
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 20px; /* Jarak antar menu */
+}
+
+.nav-links li a {
+    text-decoration: none;
+    color: #333;
+    font-size: 1rem;
+}
+
+/* Styling untuk search bar */
+.search-bar {
+    display: flex;
+    align-items: center;
+    gap: 5px; /* Jarak antara input dan tombol */
+}
+
+.search-bar input {
+    padding: 5px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    width: 200px; /* Lebar input */
+}
+
+.search-bar button {
+    padding: 5px 10px;
+    background-color: #a72859;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.search-bar button:hover {
+    background-color: #900c3f;
+}
+
+/* Styling untuk Header Icons (Profil, Keranjang) */
+.header-icons {
+    display: flex;
+    gap: 20px;
+}
+
+.header-icon {
+    font-size: 20px;
+    color: #333;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+}
+
+.header-icon:hover {
+    color: #ff6600; /* Hover color */
+}
+
+/* Profil Icon */
+.profile-icon {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+}
+
+/* Ikon Keranjang */
+.fas {
+    font-size: 20px;
+}
+
+/* Agar header tidak terpotong di perangkat mobile */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        padding: 10px;
+    }
+
+    .nav-links {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+    }
+
+    .header-icons {
+        margin-top: 10px;
+    }
+}
+
+
+/* Styling untuk produk detail */
+.product-detail {
+    padding: 40px 20px;
+    background-color: #e8e7e7;
+    text-align: center;
+}
+
+.product-detail-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-top: 30px;
+    gap: 5px;
+}
+
+.product-image img {
+    max-width: 500px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.product-info {
+    max-width: 900px;
+    text-align: left;
+    padding: 20px;
+}
+
+.product-title {
+    font-size: 36px;
+    font-weight: bold;
+    color: #333;
+}
+
+.product-price {
+    font-size: 24px;
+    color: #a72859;
+    margin-top: 10px;
+}
+
+.product-description {
+    font-size: 16px;
+    color: #555;
+    margin: 20px 0;
+}
+
+
+.product-actions {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px; /* Atur jarak antara elemen */
+}
+
+
+.add-to-cart {
+    flex: 1; /* Tombol ini memakan ruang untuk berada di tengah */
+    text-align: center; /* Posisikan teks di tengah */
+    background-color: #a72859;;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button.add-to-cart:hover {
+    background-color: pink;;
+}
+
+
+.quantity-box {
+    display: flex;
+    align-items: center; /* Sejajarkan secara vertikal */
+    gap: 6px; /* Jarak antar elemen */
+}
+
+.quantity-box button {
+    background-color: pink;
+    color: white;
+    border: none;
+    height: 40px;
+    width: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.quantity-box button:hover {
+    background-color: #a72859;;
+}
+
+.quantity-box .quantity {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #f7f2f2;
+    font-size: 16px;
+    color: #333;
+}
+
+button.btn.btn-orange {
+    background-color: #a72859;;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button.btn.btn-orange:hover {
+    background-color: pink;
+}
+
+
+/* Semua Produk */
+.all-products-container {
+    margin-top: 50px;
+    text-align: center;
+}
+
+.all-products-title {
+    font-size: 28px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.all-products {
+    display: flex;
+    gap: 20px;
+    overflow-x: auto; /* Scroll horizontal */
+    padding: 20px;
+    scrollbar-width: thin; /* Haluskan scrollbar */
+}
+
+.product-card {
+    /* Lebar setiap produk */
+    text-align: center;
+    background-color:   white;
+    padding: 50px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.product-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.product-card img {
+    width:150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 5px;
+}
+
+.product-card-title h5 {
+    font-size: px;
+    color: #333;
+   padding: 80px;
+    width: 20px;
+    height: 30px;
+    margin: 10px;
+    margin-bottom: 10px;
+}
+
+.product-card-price p {
+    font-size: 25px;
+    color: #ff6f61;
+    margin: 90px;
+    width: 50px;
+    height: 50px;
+}
+
+.product-card-btn {
+    display: inline-block;
+    margin-top: 10px;
+    background-color:  #a72859;
+
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size:12px;
+}
+
+.product-card-btn:hover {
+    background-color: #e25a4d;
+}
+
+/* Footer Styles */
+footer {
+    background-color: pink;
+    color: hsl(337, 61%, 41%);
+    padding: 20px 0;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.footer-item h3, .footer-item h4 {
+    color: #a72859;
+}
+
+/* Styling for footer links */
+.footer-item ul li a {
+    color: #222;
+    text-decoration: none;
+}
+
+.footer-item ul li a:hover {
+    color: #a72859;
+}
+
+/* Newsletter form */
+.newsletter input {
+    padding: 10px;
+    font-size: 16px;
+    width: 250px;
+    margin-right: 10px;
+    border-radius: 5px;
+    border: none;
+}
+
+.newsletter button {
+    padding: 12px 20px;
+    background-color: #a72859;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.newsletter button:hover {
+    background-color: #8c1e49;
+}
+
+/* Social media links */
+.social-links a {
+    color: #a72859;
+    margin-right: 20px;
+    font-size: 20px;
+    text-decoration: none;
+}
+
+.social-links a:hover {
+    color: #ff6600;
+}

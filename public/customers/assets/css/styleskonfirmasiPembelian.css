@@ -1,0 +1,279 @@
+/* CSS untuk halaman Konfirmasi Pembelian */
+body {
+    font-family: Arial, sans-serif;
+    background-color: white;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+}
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+h1, h2, h3, h4 {
+    margin: 0;
+}
+
+.container {
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+
+header {
+    display: flex;
+    justify-content: space-between; /* Membuat ruang antara logo, menu, dan ikon */
+    align-items: center;
+    background-color: pink;
+    width: 97%;
+    padding: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Styling untuk Logo dan Nama */
+.header-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.header-logo img {
+    width: 50px; /* Sesuaikan ukuran gambar logo */
+    height: auto;
+}
+
+.logo {
+    font-size: 24px;
+    color: #333;
+}
+
+.logo span {
+    color: #ff6600;
+}
+
+/* Styling untuk navigasi */
+.nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: pink;
+    padding: 10px 20px;
+    gap: 20px; /* Memberikan jarak antar elemen dalam navigasi */
+}
+
+/* Styling untuk daftar link */
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 20px; /* Jarak antar menu */
+}
+
+.nav-links li a {
+    text-decoration: none;
+    color: #333;
+    font-size: 1rem;
+}
+
+/* Styling untuk search bar */
+.search-bar {
+    display: flex;
+    align-items: center;
+    gap: 5px; /* Jarak antara input dan tombol */
+}
+
+.search-bar input {
+    padding: 5px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    width: 200px; /* Lebar input */
+}
+
+.search-bar button {
+    padding: 5px 10px;
+    background-color: #a72859;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.search-bar button:hover {
+    background-color: #900c3f;
+}
+
+/* Styling untuk Header Icons (Profil, Keranjang) */
+.header-icons {
+    display: flex;
+    gap: 20px;
+}
+
+.header-icon {
+    font-size: 20px;
+    color: #333;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+}
+
+.header-icon:hover {
+    color: #ff6600; /* Hover color */
+}
+
+/* Profil Icon */
+.profile-icon {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+}
+
+/* Ikon Keranjang */
+.fas {
+    font-size: 20px;
+}
+
+/* Agar header tidak terpotong di perangkat mobile */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        padding: 10px;
+    }
+
+    .nav-links {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+    }
+
+    .header-icons {
+        margin-top: 10px;
+    }
+}
+
+
+main {
+    padding: 20px;
+}
+
+main h2 {
+    text-align: center;
+    color: #000000;
+    margin-bottom: 20px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+table th, table td {
+    border: 1px solid #7a7a7a;
+    padding: 10px;
+    text-align: center;
+}
+
+table th {
+    background-color: pink;
+    color: black;
+}
+
+form {
+    max-width: 1700px;
+    margin: 0 auto;
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    display: grid;  /* Menggunakan grid */
+    grid-template-columns: 1fr 1fr; /* Membagi form menjadi dua kolom */
+    gap: 30px;
+}
+
+.data-diri,
+.pesan-opsional {
+    display: flex;
+    flex-direction: column;
+}
+
+.data-diri label,
+.pesan-opsional label {
+    display: block;
+    margin-bottom: 5px;
+    color: black;
+    font-weight: bold;
+}
+
+.data-diri input,
+.data-diri textarea,
+.pesan-opsional textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #7a7a7a;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+/* Jarak antara Data Diri dan Pesan Opsional */
+.pesan-opsional {
+    margin-top: 0px; /* Memberikan jarak antara Data Diri dan Pesan Opsional */
+}
+
+/* Kolom Pesan Opsional */
+.pesan-opsional .optional-message {
+    grid-column: span 2; /* Memastikan pesan opsional mengambil dua kolom */
+}
+
+.pesan-opsional .optional-message label {
+    margin-bottom: 10px; /* Memberikan jarak di bawah label */
+}
+
+/* Tombol Konfirmasi Pembelian */
+.submit-btn {
+    grid-column: span 2; /* Membuat tombol memanjang ke dua kolom */
+    justify-self: flex-end; /* Menempatkan tombol di pojok kanan */
+    padding: 10px 20px;
+    background-color: #ff6699;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 20px;
+    width: auto;
+    
+}
+
+.submit-btn:hover {
+    background-color: #ff3366;
+}
+
+footer {
+    background-color: pink;
+    color: #a72859;
+    padding: 20px 0;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.footer-item h3, .footer-item h4 {
+    color: #a72859;
+}
+
+/* Styling for newsletter and footer links */
+.footer-item ul li a {
+    color: #222;
+}
+
+.footer-item ul li a:hover {
+    color: #222;
+}

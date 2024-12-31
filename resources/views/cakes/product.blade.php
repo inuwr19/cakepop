@@ -1,7 +1,7 @@
 @extends('layouts.customers.index')
 
 @section('content')
-    <div class="container-xxl py-5">
+    <div class="container-xxl py-5" style="margin-top:7rem">
         <div class="container">
             <div class="row g-0 gx-5 align-items-end">
                 <div class="col-lg-6">

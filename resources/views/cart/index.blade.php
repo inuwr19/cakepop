@@ -1,7 +1,7 @@
 @extends('layouts.customers.index')
 
 @section('content')
-    <div class="container py-5 mt-5">
+    <div class="container py-5" style="margin-top:7rem; margin-bottom:5rem">
         <h2 class="mb-4">Keranjang Belanja Anda</h2>
 
         @if (session('cart') && count(session('cart')) > 0)

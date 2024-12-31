@@ -2,7 +2,7 @@
 
 @section('content')
     <!-- Product Detail Start -->
-    <div class="container py-5 mt-5">
+    <div class="container py-5" style="margin-top: 7rem;">
         <div class="row justify-content-center">
             <!-- Main Product Detail -->
             <div class="col-lg-10">

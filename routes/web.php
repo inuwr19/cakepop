@@ -21,6 +21,7 @@ Route::middleware([
     Route::post('/cart/add', [CartController::class, 'add'])->name('cart.add');
     Route::post('/cart/update', [CartController::class, 'update'])->name('cart.update');
     Route::post('/cart/remove', [CartController::class, 'remove'])->name('cart.remove');
+    Route::get('/cakes/search', [CakeController::class, 'search'])->name('cakes.search');
 
     // Checkout
     Route::get('/checkout', [CheckoutController::class, 'show'])->name('checkout.show');

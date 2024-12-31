@@ -1,0 +1,395 @@
+/* Global Styles */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #f9f9f9;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+h1, h2, h3, h4 {
+    margin: 0;
+}
+
+.container {
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.btn {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    text-align: center;
+}
+
+.btn-green {
+    background-color: #a72859;
+    color: white;
+}
+
+.btn-green:hover {
+    background-color: #a72859;
+}
+
+.btn-orange {
+    background-color: #fd7e14;
+    color: white;
+}
+
+.btn-orange:hover {
+    background-color: #e66a0a;
+}
+
+.btn-light {
+    background-color: #f1f1f1;
+    color: #333;
+}
+
+.btn-light:hover {
+    background-color: #ddd;
+}
+
+header {
+    display: flex;
+    justify-content: space-between; /* Membuat ruang antara logo, menu, dan ikon */
+    align-items: center;
+    background-color: pink;
+    width: 97%;
+    padding: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Styling untuk Logo dan Nama */
+.header-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.header-logo img {
+    width: 50px; /* Sesuaikan ukuran gambar logo */
+    height: auto;
+}
+
+.logo {
+    font-size: 24px;
+    color: #333;
+}
+
+.logo span {
+    color: #ff6600;
+}
+
+/* Styling untuk navigasi */
+.nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: pink;
+    padding: 10px 20px;
+    gap: 20px; /* Memberikan jarak antar elemen dalam navigasi */
+}
+
+/* Styling untuk daftar link */
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 20px; /* Jarak antar menu */
+}
+
+.nav-links li a {
+    text-decoration: none;
+    color: #333;
+    font-size: 1rem;
+}
+
+/* Styling untuk search bar */
+.search-bar {
+    display: flex;
+    align-items: center;
+    gap: 5px; /* Jarak antara input dan tombol */
+}
+
+.search-bar input {
+    padding: 5px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    width: 200px; /* Lebar input */
+}
+
+.search-bar button {
+    padding: 5px 10px;
+    background-color: #a72859;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.search-bar button:hover {
+    background-color: #900c3f;
+}
+
+/* Styling untuk Header Icons (Profil, Keranjang) */
+.header-icons {
+    display: flex;
+    gap: 20px;
+}
+
+.header-icon {
+    font-size: 20px;
+    color: #333;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+}
+
+.header-icon:hover {
+    color: #ff6600; /* Hover color */
+}
+
+/* Profil Icon */
+.profile-icon {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+}
+
+/* Ikon Keranjang */
+.fas {
+    font-size: 20px;
+}
+
+/* Agar header tidak terpotong di perangkat mobile */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        padding: 10px;
+    }
+
+    .nav-links {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+    }
+
+    .header-icons {
+        margin-top: 10px;
+    }
+}
+
+
+/* Banner Section */
+.banner {
+    position: relative;
+    text-align: left;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 50px;
+    background-color: #f5f5f5;
+}
+
+.banner-content {
+    max-width: 50%;
+}
+
+.banner h2 {
+    font-size: 36px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.banner-buttons {
+    margin-top: 20px;
+}
+
+.banner-img {
+    width: 30%;
+    border-radius: 10px;
+}
+
+/* About Section */
+.about {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 50px;
+    background-color: rgba(220, 197, 212, 0.59);
+}
+
+.about-content {
+    max-width: 50%;
+}
+
+.about h3 {
+    font-size: 30px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.about ul {
+    list-style: none;
+    padding: 0;
+}
+
+.about ul li {
+    margin-bottom: 10px;
+    font-size: 18px;
+}
+
+.about-img {
+    width: 35%;
+    border-radius: 10px;
+}
+
+/* Features Section */
+.features {
+    padding: 50px;
+    text-align: center;
+    background-color: #f9f9f9;
+}
+
+.features h3 {
+    font-size: 28px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.features-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.feature {
+    background-color: white;
+    border: 1px solid #ddd;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    flex: 1;
+}
+
+.feature img {
+    max-width: 50px;
+    margin-bottom: 10px;
+}
+
+.feature h4 {
+    margin-bottom: 10px;
+    color:#a72859;
+}
+
+
+
+
+/* Products Section */
+.products {
+    padding: 50px 20px;
+    background-color: #fff;
+}
+
+.products h3 {
+    font-size: 36px;
+    text-align: center;
+    color: #333;
+    margin-bottom: 40px;
+}
+
+.products-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.product-card {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    width: 30%;
+    margin-bottom: 30px;
+    text-align: center;
+    overflow: hidden;
+    transition: all 0.3s ease-in-out;
+}
+
+.product-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.product-card img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+}
+
+.product-info {
+    padding: 20px;
+}
+
+.product-info h4 {
+    font-size: 22px;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.product-info p {
+    font-size: 18px;
+    color: #a72859;
+    margin-bottom: 20px;
+}
+
+.product-info .btn {
+    margin: 5px 0;
+}
+
+.product-info .btn-pink {
+    background-color: #a72859;
+    color: #fff;
+}
+
+.product-info .btn-light {
+    background-color: #f9f9f9;
+    color: #333;
+    border: 1px solid #ddd;
+}
+
+
+footer {
+    background-color: pink;
+    color: #a72859;
+    padding: 20px 0;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.footer-item h3, .footer-item h4 {
+    color: #a72859;
+}
+
+/* Styling for newsletter and footer links */
+.footer-item ul li a {
+    color: #222;
+}
+
+.footer-item ul li a:hover {
+    color: #222;
+}

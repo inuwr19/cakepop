@@ -1,0 +1,176 @@
+/* Global Styles */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #f9f9f9;
+}
+
+
+
+/* Styling untuk Header */
+header {
+    display: flex;
+    justify-content: space-between; /* Membuat ruang antara logo dan menu serta ikon */
+    align-items: center;
+    background-color: pink;
+    width: 100%;
+    padding: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Styling untuk Logo dan Nama */
+.header-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.header-logo img {
+    width: 50px; /* Sesuaikan ukuran gambar logo */
+    height: auto;
+}
+
+.logo {
+    font-size: 24px;
+    color: #333;
+}
+
+.logo span {
+    color: #ff6600;
+}
+
+/* Styling untuk Navigasi */
+.nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: pink;
+    padding: 10px 20px;
+    gap: 20px; /* Memberikan jarak antar elemen dalam navigasi */
+}
+
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 20px; /* Jarak antar menu */
+}
+
+.nav-links li {
+    font-size: 16px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #333;
+}
+
+.nav-links a:hover {
+    color: #ff6600; /* Hover color untuk menu */
+}
+
+/* Styling untuk Header Icons (Profil, Keranjang) */
+.header-icons {
+    display: flex;
+    gap: 20px;
+}
+
+.header-icon {
+    font-size: 20px;
+    color: #333;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+}
+
+.header-icon:hover {
+    color: #ff6600; /* Hover color */
+}
+
+/* Profil Icon */
+.profile-icon {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+}
+
+/* Ikon Keranjang */
+.fas {
+    font-size: 20px;
+}
+
+
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+    padding: 20px;
+}
+
+.login-box {
+    width: 350px;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.login-box h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.login-box form {
+    display: flex;
+    flex-direction: column;
+}
+
+.login-box input[type="email"], 
+.login-box input[type="password"] {
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.btn-login {
+    background-color: #a72859;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    text-align: center;
+}
+
+footer {
+    background-color: pink;
+    color: #a72859;
+    padding: 20px 0;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.footer-item h3, .footer-item h4 {
+    color: #a72859;
+}
+
+/* Styling for newsletter and footer links */
+.footer-item ul li a {
+    color: #222;
+}
+
+.footer-item ul li a:hover {
+    color: #222;
+}

@@ -1,0 +1,190 @@
+/* General Styling */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #fce4ec;
+    margin: 0;
+    padding: 0;
+}
+
+.register-container {
+    text-align: center;
+    margin-top: 50px;
+}
+
+header {
+    display: flex;
+    justify-content: space-between; /* Membuat ruang antara logo dan menu serta ikon */
+    align-items: center;
+    background-color: pink;
+    width: 100%;
+    padding: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Styling untuk Logo dan Nama */
+.header-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.header-logo img {
+    width: 50px; /* Sesuaikan ukuran gambar logo */
+    height: auto;
+}
+
+.logo {
+    font-size: 24px;
+    color: #333;
+}
+
+.logo span {
+    color: #ff6600;
+}
+
+/* Styling untuk Navigasi */
+.nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: pink;
+    padding: 10px 20px;
+    gap: 20px; /* Memberikan jarak antar elemen dalam navigasi */
+}
+
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 20px; /* Jarak antar menu */
+}
+
+.nav-links li {
+    font-size: 16px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: #333;
+}
+
+.nav-links a:hover {
+    color: #ff6600; /* Hover color untuk menu */
+}
+
+/* Styling untuk Header Icons (Profil, Keranjang) */
+.header-icons {
+    display: flex;
+    gap: 20px;
+}
+
+.header-icon {
+    font-size: 20px;
+    color: #333;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+}
+
+.header-icon:hover {
+    color: #ff6600; /* Hover color */
+}
+
+/* Profil Icon */
+.profile-icon {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+}
+
+/* Ikon Keranjang */
+.fas {
+    font-size: 20px;
+}
+
+
+
+
+.form-container {
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.form-container h2 {
+    font-size: 24px;
+    color: black;
+}
+
+.form-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.form-group label {
+    font-size: 14px;
+    color: #333;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    margin-top: 5px;
+}
+
+button {
+    padding: 10px 20px;
+    border: none;
+    color: white;
+    background-color: #a72859;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: pink;
+}
+
+.google-btn {
+    background-color: #4285F4;
+    margin-top: 15px;
+    width: 100%;
+}
+
+.google-btn:hover {
+    background-color: #357ae8;
+}
+
+footer {
+    background-color: pink;
+    color: #a72859;
+    padding: 20px 0;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.footer-item h3, .footer-item h4 {
+    color: #a72859;
+}
+
+/* Styling for newsletter and footer links */
+.footer-item ul li a {
+    color: #222;
+}
+
+.footer-item ul li a:hover {
+    color: #222;
+}
