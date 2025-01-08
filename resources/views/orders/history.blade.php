@@ -26,7 +26,8 @@
                             @endphp
 
                             @if ($paymentStatus === 'pending')
-                                <span class="badge bg-warning text-dark">Pending</span>
+                                <span class="badge bg-danger">Failed</span>
+                                {{-- <span class="badge bg-warning text-dark">Pending</span> --}}
                             @elseif ($paymentStatus === 'success')
                                 <span class="badge bg-success">Success</span>
                             @elseif ($paymentStatus === 'failed')
