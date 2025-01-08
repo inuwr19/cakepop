@@ -1,7 +1,7 @@
 @extends('layouts.customers.index')
 
 @section('content')
-    <div class="container py-5 mt-5">
+    <div class="container py-5" style="margin-top:7rem;">
         <h2>Edit Profile</h2>
 
         <!-- User Information Form -->
@@ -48,6 +48,13 @@
                         <label for="address" class="form-label">Alamat Lengkap</label>
                         <input type="text" id="address" name="address" class="form-control"
                             value="{{ Auth::user()->address->address ?? '' }}" required>
+                    </div>
+
+                    <!-- Phone -->
+                    <div class="mb-3">
+                        <label for="phone" class="form-label">Telepon</label>
+                        <input type="tel" id="phone" name="phone" class="form-control"
+                            value="{{ Auth::user()->address->phone ?? '' }}" required>
                     </div>
 
                     <!-- City -->

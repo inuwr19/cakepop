@@ -31,18 +31,26 @@ class ProfileController extends Controller
 
     public function updateAddress(Request $request)
     {
+        // Validasi input
         $request->validate([
             'address' => 'required|string|max:255',
             'city' => 'required|string|max:255',
             'postal_code' => 'required|string|max:10',
+            'phone' => 'required|string|max:15', // Validasi tambahan untuk phone
         ]);
 
+        // Dapatkan pengguna yang sedang login
         $user = Auth::user();
 
-        // Update or create address
+        // Perbarui atau buat alamat
         $user->address()->updateOrCreate(
             ['user_id' => $user->id],
-            $request->only(['address', 'city', 'postal_code'])
+            [
+                'address' => $request->address,
+                'city' => $request->city,
+                'postal_code' => $request->postal_code,
+                'phone' => $request->phone, // Simpan nomor telepon
+            ]
         );
 
         return redirect()->route('profile.user')->with('status', 'Alamat berhasil diperbarui.');

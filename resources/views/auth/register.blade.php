@@ -1,7 +1,7 @@
 @extends('layouts.customers.index') <!-- Ganti dengan layout yang Anda gunakan -->
 
 @section('content')
-<div class="container d-flex justify-content-center align-items-center vh-100">
+<div class="container d-flex justify-content-center align-items-center vh-100" style="margin-top: 7rem;">
     <div class="card p-4" style="width: 400px;">
         <h3 class="text-center mb-4">Register</h3>
 
@@ -22,6 +22,15 @@
                 <label for="email" class="form-label">Email</label>
                 <input type="email" id="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required>
                 @error('email')
+                    <span class="text-danger">{{ $message }}</span>
+                @enderror
+            </div>
+
+            <!-- Phone Input -->
+            <div class="mb-3">
+                <label for="phone" class="form-label">Phone</label>
+                <input type="tel" id="phone" class="form-control @error('phone') is-invalid @enderror" name="phone" value="{{ old('phone') }}" required>
+                @error('phone')
                     <span class="text-danger">{{ $message }}</span>
                 @enderror
             </div>
