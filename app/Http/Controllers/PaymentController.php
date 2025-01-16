@@ -62,7 +62,10 @@ class PaymentController extends Controller
     {
         try {
             // 1. Buat koneksi ke Midtrans API
-            $client = new Client();
+            $client = new \GuzzleHttp\Client([
+                'verify' => base_path('resources\cacert.pem'), // Path ke sertifikat SSL
+            ]);
+
             $serverKey = config('services.midtrans.server_key'); // Ambil Server Key dari config
             $url = "https://api.sandbox.midtrans.com/v2/{$orderId}/status";
 
@@ -79,7 +82,7 @@ class PaymentController extends Controller
 
             // 4. Proses status transaksi
             $payment = Payment::where('order_id', $orderId)->first();
-
+            
             if ($payment) {
                 DB::beginTransaction();
                 switch ($result['transaction_status']) {
@@ -116,5 +119,4 @@ class PaymentController extends Controller
             return response()->json(['error' => $e->getMessage()], 500);
         }
     }
-
 }

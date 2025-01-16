@@ -13,7 +13,8 @@
     <script>
         var payButton = document.getElementById('pay-button');
         payButton.addEventListener('click', function() {
-            snap.pay('{{ $snapToken }}', {
+            var snapToken = '{{ $snapToken }}';
+            snap.pay(snapToken, {
                 // Jika pembayaran sukses
                 onSuccess: function(result) {
                     console.log(result);
@@ -25,9 +26,7 @@
                 onPending: function(result) {
                     console.log(result);
                     alert('Menunggu pembayaran Anda!');
-                    checkPaymentStatus(
-                        '{{ $order->id }}'
-                    ); // Tetap panggil fungsi cek status untuk memantau perubahan
+                    checkPaymentStatus('{{ $order->id }}'); // Tetap panggil fungsi cek status untuk memantau perubahan
                 },
 
                 // Jika pembayaran gagal
@@ -50,7 +49,6 @@
                 type: 'GET',
                 success: function(response) {
                     if (response.message === 'Status updated successfully!') {
-                        // alert('Status pembayaran berhasil diperbarui!');
                         window.location.href = "{{ route('invoice.show', ['orderId' => $order->id]) }}";
                     } else {
                         alert('Status pembayaran masih pending atau gagal diperbarui.');

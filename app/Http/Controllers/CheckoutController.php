@@ -12,6 +12,12 @@ use App\Models\Address;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
+use GuzzleHttp\Client;
+use GuzzleHttp\Exception\RequestException;
+use Illuminate\Support\Str;
+
+
+
 
 class CheckoutController extends Controller
 {
@@ -24,6 +30,7 @@ class CheckoutController extends Controller
         $total = collect($cartItems)->sum(function ($item) {
             return $item['price'] * $item['quantity']; // Mengakses dengan notasi array
         });
+
 
         // Menampilkan halaman checkout
         return view('checkout.show', compact('cartItems', 'total'));
@@ -41,8 +48,8 @@ class CheckoutController extends Controller
         ]);
 
         DB::beginTransaction();
+
         try {
-            // Buat alamat pengiriman
             $address = Address::create([
                 'user_id' => Auth::id(),
                 'address' => $validatedData['address'],
@@ -50,14 +57,12 @@ class CheckoutController extends Controller
                 'postal_code' => '15340',
             ]);
 
-            // Buat pesanan
             $order = Order::create([
                 'user_id' => Auth::id(),
                 'address_id' => $address->id,
                 'total_amount' => $request->total,
             ]);
 
-            // Simpan pembayaran sementara dengan status 'pending'
             $payment = Payment::create([
                 'order_id' => $order->id,
                 'payment_method' => 'midtrans',
@@ -66,17 +71,24 @@ class CheckoutController extends Controller
                 'invoice' => 'INV-' . strtoupper(uniqid()),
             ]);
 
-            // Konfigurasi Midtrans
+            // dd($order, $payment);
+
             Config::$serverKey = config('services.midtrans.server_key');
             Config::$isProduction = false;
             Config::$isSanitized = true;
             Config::$is3ds = true;
 
-            // Data transaksi Midtrans
+            // Menggunakan sertifikat SSL melalui konfigurasi
+            $client = new \GuzzleHttp\Client([
+                'verify' => base_path('resources/cacert.pem'), // Path ke sertifikat SSL
+            ]);
+
             $transactionDetails = [
-                'order_id' => $order->id,
+                'order_id' => $payment->invoice,
                 'gross_amount' => $request->total,
             ];
+
+            // dd($transactionDetails);
 
             $customerDetails = [
                 'first_name' => $validatedData['name'],
@@ -85,20 +97,43 @@ class CheckoutController extends Controller
                 'address' => $validatedData['address'],
             ];
 
-            $snapToken = Snap::getSnapToken([
-                'transaction_details' => $transactionDetails,
-                'customer_details' => $customerDetails,
+            Log::info('Transaction Details: ', $transactionDetails);
+            Log::info('Customer Details: ', $customerDetails);
+
+            $response = $client->post('https://app.sandbox.midtrans.com/snap/v1/transactions', [
+                'headers' => [
+                    'Authorization' => 'Basic ' . base64_encode(config('services.midtrans.server_key') . ':'),
+                    'Content-Type' => 'application/json',
+                ],
+                'json' => [
+                    'transaction_details' => $transactionDetails,
+                    'customer_details' => $customerDetails,
+                ],
             ]);
+
+            $body = $response->getBody()->getContents();
+            $result = json_decode($body);
+
+            if (isset($result->token)) {
+                $snapToken = $result->token;
+            }
+
+            Log::info('Snap Token: ', ['snap_token' => $snapToken]);
+            Log::info('Midtrans Response: ', ['response' => $body]);
 
             DB::commit();
 
-            // Kirim token Snap ke view
             return view('checkout.midtrans', compact('snapToken', 'order'));
         } catch (\Exception $e) {
             DB::rollBack();
+            Log::error('Error processing payment: ' . $e->getMessage());
             return redirect()->back()->with('error', 'Terjadi kesalahan saat memproses pesanan Anda.');
         }
     }
+
+
+
+
 
     public function callback(Request $request)
     {
